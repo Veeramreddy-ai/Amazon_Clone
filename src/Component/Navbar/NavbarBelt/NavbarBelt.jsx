@@ -57,12 +57,23 @@ function NavbarBelt() {
                 <div className='helloSignInNavbarBelt'>
                         <div className='helloTopNavbarBelt'>Hello, User</div>
                         <div className='indiaCodeNavbarBelt'>Accounts & Lists</div>
+                        <div
+   className='logoutBtnNavbar'
+   onClick={()=>{
+      localStorage.removeItem("isLoggedIn");
+      window.location.reload();
+   }}
+>
+   Logout
+</div>
                 </div>
 
                 <div className='helloSignInNavbarBelt'>
                         <div className='helloTopNavbarBelt'>Returns</div>
                         <div className='indiaCodeNavbarBelt'>& Orders</div>
                 </div>
+
+                
 
                 {/* <Link to={'/cart'} className='helloSignInNavbarBelt'>
                     <span className='cartItemNumberNavbarBelt'>2</span>

@@ -186,14 +186,23 @@
     color: #ccc;
 }
 
+.logoutBtnNavbar{
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 2px;
+    color: #febd69;
+    cursor: pointer;
+}
+
 .helloSignInNavbarBelt{
     display: flex;
     position: relative;
     color: white;
     text-decoration: none;
     flex-direction: column;
-    height: 30px;
-    padding: 8px;
+    justify-content: center;
+    min-height: 42px;
+    padding: 6px 8px;
     cursor: pointer;
     &:hover{
         border-radius: 3px;

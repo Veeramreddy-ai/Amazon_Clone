@@ -5,19 +5,20 @@ import StarOutlineIcon from '@mui/icons-material/StarOutlineOutlined';
 import productDetail from './products.json';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../Redux/Actions/Actions';
-import { toast,ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 
-function Products (){
+function Products() {
 
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.items);
-    const handleAddToCart=(item)=>{
+    const handleAddToCart = (item) => {
 
         toast.success("Added To Cart", {
-            position:"bottom-right"
-          })
-          
+            position: "bottom-right"
+        })
+
         dispatch(addToCart(item));
     }
     return (
@@ -114,43 +115,49 @@ function Products (){
                         {
                             productDetail.product.map((item, index) => {
                                 return (
-                                   <div className='itemsImageProductPageOne' key={item.id}>
+                                    <div className='itemsImageProductPageOne' key={item.id}>
                                         <div className='imgBlockitemsImageProductPageOne'>
-                                            <img src={item.imageUrl} className='productImageProduct' alt="" />
+                                            <Link to={`/product/${item.id}`}>
+                                                <img
+                                                    src={item.imageUrl}
+                                                    className='productImageProduct'
+                                                    alt=""
+                                                />
+                                            </Link>
                                         </div>
                                         <div className='productNameProduc'>
-                                                <div>{item.name}</div>
-                                                <div className='productNameProductRating'>
-                                                    <StarRateIcon sx={{fontSize:"16px",color:"#febd69"}}/>
-                                                    <StarRateIcon sx={{fontSize:"16px",color:"#febd69"}}/>
-                                                    <StarRateIcon sx={{fontSize:"16px",color:"#febd69"}}/>
-                                                    <StarRateIcon sx={{fontSize:"16px",color:"#febd69"}}/>
-                                                    <StarOutlineIcon sx={{fontSize:"16px",color:"#febd69"}}/>
+                                            <div>{item.name}</div>
+                                            <div className='productNameProductRating'>
+                                                <StarRateIcon sx={{ fontSize: "16px", color: "#febd69" }} />
+                                                <StarRateIcon sx={{ fontSize: "16px", color: "#febd69" }} />
+                                                <StarRateIcon sx={{ fontSize: "16px", color: "#febd69" }} />
+                                                <StarRateIcon sx={{ fontSize: "16px", color: "#febd69" }} />
+                                                <StarOutlineIcon sx={{ fontSize: "16px", color: "#febd69" }} />
+                                            </div>
+                                            <div className='priceProductDetailsPage'>
+                                                <div className='currencyText'>₹</div>
+                                                <div className='rateHomeDetail'>
+                                                    <div className='rateHomeDetailsPrice'>{item.price}</div>
+                                                    <div className='addtobasketBtn' onClick={() => {
+                                                        handleAddToCart(item)
+                                                    }}>Add To Cart</div>
                                                 </div>
-                                                <div className='priceProductDetailsPage'>
-                                                    <div className='currencyText'>₹</div>
-                                                    <div className='rateHomeDetail'>
-                                                        <div className='rateHomeDetailsPrice'>{item.price}</div>
-                                                        <div className='addtobasketBtn' onClick={()=>{
-                                                            handleAddToCart(item)
-                                                        }}>Add To Cart</div>
-                                                    </div>
-                                                </div>
-                                                <div className='offProductPage'> Upto 10% off on select cards</div>
-                                                <div className='freeDeliveryHomePage'>Free Delivery By Amazon</div>
+                                            </div>
+                                            <div className='offProductPage'> Upto 10% off on select cards</div>
+                                            <div className='freeDeliveryHomePage'>Free Delivery By Amazon</div>
                                         </div>
-                                   </div>
+                                    </div>
                                 );
 
                             })
                         }
 
 
-                    </div>  
+                    </div>
 
                 </div>
             </div>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
 
 

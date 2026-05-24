@@ -6,7 +6,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 function Cart() {
-    // const [cartItem, setCartItem] = useState([]);
+    const [cartItem, setCartItem] = useState([]);
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.items);
     const totalPrice = cartItems.reduce(
@@ -17,9 +17,9 @@ function Cart() {
     // let a = 0;
     // let cost = cartItems.map((item)=>{return  a = a+ item.price})
 
-    // useEffect(() => {
-    //     setCartItem(cartItems);
-    // }, [cartItems])
+    useEffect(() => {
+        setCartItem(cartItems);
+    }, [cartItems])
 
     const handleRemoveFromCart = (id) => {
         toast.error("Item Removed From Cart", {

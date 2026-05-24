@@ -45,7 +45,7 @@
     width: 20%;
     flex-shrink: 0;
 }
-.cartItemLeftBlockImg{
+.cartItemLeftBlocking{
     width: 100%;
 }
 
@@ -61,7 +61,7 @@
 .cartItemProductName{
     font-size: 18px;
 }
-.inStockCart{
+.inStockcart{
     color: #007600;
     font-size: 12px;
 }
@@ -75,7 +75,7 @@
 .fullfillImg{
     width: 100%;
 }
-.removeFromCart{
+.removeFromcart{
     padding: 5px;
     font-size: 14px;
     background-color: #febd69;

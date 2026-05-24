@@ -1,0 +1,25 @@
+.productDetailsPage{
+    display:flex;
+    padding:40px;
+    gap:50px;
+}
+
+.productDetailsImage{
+    width:350px;
+}
+
+.productDetailsRight{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.addToCartDetailsBtn{
+    width:200px;
+    padding:10px;
+    background:#ffd814;
+    border:none;
+    cursor:pointer;
+    border-radius:20px;
+    font-size:16px;
+}
