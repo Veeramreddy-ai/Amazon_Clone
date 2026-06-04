@@ -2,7 +2,7 @@ import React from 'react'
 import './NavbarBelt.css'
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import amazonlogo from '../../../assets/amazonlogo.png';
+import amazonlogo from '../../../assets/amazonLogo.png';
 import india from '../../../assets/india.png';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
@@ -15,7 +15,7 @@ function NavbarBelt() {
     <div className='navbarBelt'>
       <div className='leftNavBelt'>
           <Link to={'/'} className='leftNavBeltLogo'>
-            <img className='amazonLogoNavbar' src={amazonlogo} alt="" />
+            <img className='amazonLogoNavbar' src={amazonLogo} alt="" />
             <span className='navbar_inLogo'>.in</span>
           </Link>
           <div className='navbarBeltLocation'>
