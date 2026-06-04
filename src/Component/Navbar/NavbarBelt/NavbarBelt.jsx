@@ -2,7 +2,7 @@ import React from 'react'
 import './NavbarBelt.css'
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import amazonlogo from '../../../assets/amazonLogo.png';
+import amazonLogo from '../../../assets/amazonLogo.png';
 import india from '../../../assets/india.png';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
