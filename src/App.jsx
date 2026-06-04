@@ -3,8 +3,8 @@ import Navbar from './Component/Navbar/Navbar';
 import { Routes, Route } from 'react-router-dom';
 import HomeScreen from './Screen/HomeScreen/HomeScreen';
 import Products from './Screen/Products/Products';
-import Footer from './Component/Footer/footer';
-import Cart from './Screen/Cart/cart';
+import Footer from './Component/Footer/Footer';
+import Cart from './Screen/Cart/Cart';
 import ProductDetails from './Screen/ProductDetails/ProductDetails';
 
 import Auth from './Screen/Auth/Auth';
