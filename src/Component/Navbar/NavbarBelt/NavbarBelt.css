@@ -228,3 +228,13 @@
     font-weight: 600;
     font-size: 16px;
 }
+
+/* Mobile Responsive */
+
+@media screen and (max-width:768px){
+
+    .navbarBelt{
+        zoom:0.28;
+    }
+
+}

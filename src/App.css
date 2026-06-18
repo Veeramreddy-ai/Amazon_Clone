@@ -2,5 +2,23 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  height: 670px;
+  /* background-color: aqua; */
   /* border: 1px solid; */
 }
+@media screen and (max-width:768px){
+
+    .Toastify__toast{
+        width: 180px !important;
+        min-height: 30px !important;
+        font-size: 11px !important;
+    }
+
+    .Toastify__toast-body{
+        font-size: 11px !important;
+    }
+
+}
+
+
+

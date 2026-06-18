@@ -28,3 +28,13 @@
 .contentFooterSubTitleCont{
     margin-bottom: 10px;
 }
+
+@media screen and (max-width:768px){
+
+    .footer{
+        transform: scale(0.45);
+        transform-origin: top left;
+        width: 223%;
+        /* height: 600px; */
+    }
+}

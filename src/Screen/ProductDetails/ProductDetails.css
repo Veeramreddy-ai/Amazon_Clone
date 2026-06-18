@@ -23,3 +23,15 @@
     border-radius:20px;
     font-size:16px;
 }
+
+@media screen and (max-width:768px){
+
+    .productDetailsPage{
+        transform: scale(0.4);
+        transform-origin: top left;
+        width: 25%;
+        background-color: #ffd814;
+        /* margin-bottom: -150px; */
+    }
+
+}
