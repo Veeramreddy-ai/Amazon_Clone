@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Products.css';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import StarOutlineIcon from '@mui/icons-material/StarOutlineOutlined';
@@ -12,6 +12,9 @@ import { Link } from 'react-router-dom';
 function Products() {
 
     const dispatch = useDispatch();
+    const [searchTerm, setSearchTerm] = useState("");
+    const [sortOption, setSortOption] = useState("");
+    const [priceFilter, setPriceFilter] = useState("");
     const cartItems = useSelector((state) => state.cart.items);
     const handleAddToCart = (item) => {
 
@@ -20,6 +23,48 @@ function Products() {
         })
 
         dispatch(addToCart(item));
+    }
+    let filteredProducts = [...productDetail.product];
+
+    filteredProducts = filteredProducts.filter((item) =>
+        item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    switch (priceFilter) {
+        case "under1000":
+            filteredProducts = filteredProducts.filter(
+                (item) => item.price < 1000
+            );
+            break;
+
+        case "1000to10000":
+            filteredProducts = filteredProducts.filter(
+                (item) => item.price >= 1000 && item.price <= 10000
+            );
+            break;
+
+        case "above10000":
+            filteredProducts = filteredProducts.filter(
+                (item) => item.price > 10000
+            );
+            break;
+
+        default:
+            break;
+    }
+    console.log("Search:", searchTerm);
+    console.log("Products:", filteredProducts);
+
+    if (sortOption === "lowToHigh") {
+        filteredProducts = [...filteredProducts].sort(
+            (a, b) => a.price - b.price
+        );
+    }
+
+    if (sortOption === "highToLow") {
+        filteredProducts = [...filteredProducts].sort(
+            (a, b) => b.price - a.price
+        );
     }
     return (
         <div className="productPage">
@@ -109,11 +154,48 @@ function Products() {
                     <div className="productsPageMainRightTopBanner">
                         1-5 of 5 results for <span className='productsPageMainRightTopBannerSpan'>Macbooks</span>
                     </div>
+                    <div className="productControls">
 
+                        <input
+                            type="text"
+                            placeholder="Search Product..."
+                            value={searchTerm}
+                            onChange={(e) => {
+                                console.log(e.target.value);
+                                setSearchTerm(e.target.value);
+                            }}
+                        />
+
+                        <select
+                            value={priceFilter}
+                            onChange={(e) => {
+                                console.log("Price Filter:", e.target.value);
+                                setPriceFilter(e.target.value);
+                            }}
+                        >
+                            <option value="">All Prices</option>
+                            <option value="under1000">Under ₹1000</option>
+                            <option value="1000to10000">₹1000 - ₹10000</option>
+                            <option value="above10000">Above ₹10000</option>
+                        </select>
+
+                        <select
+                            value={sortOption}
+                            onChange={(e) => {
+                                console.log("Sort:", e.target.value);
+                                setSortOption(e.target.value);
+                            }}
+                        >
+                            <option value="">Sort By</option>
+                            <option value="lowToHigh">Price Low To High</option>
+                            <option value="highToLow">Price High To Low</option>
+                        </select>
+
+                    </div>
                     <div className="itemsImageProductPage">
 
                         {
-                            productDetail.product.map((item, index) => {
+                            filteredProducts.map((item, index) => {
                                 return (
                                     <div className='itemsImageProductPageOne' key={item.id}>
                                         <div className='imgBlockitemsImageProductPageOne'>
@@ -125,7 +207,7 @@ function Products() {
                                                 />
                                             </Link>
                                         </div>
-                                        <div className='productNameProduc'>
+                                        <div className='productNameProduct'>
                                             <div>{item.name}</div>
                                             <div className='productNameProductRating'>
                                                 <StarRateIcon sx={{ fontSize: "16px", color: "#febd69" }} />

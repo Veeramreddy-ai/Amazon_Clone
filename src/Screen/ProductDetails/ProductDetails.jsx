@@ -1,4 +1,5 @@
 import React from 'react'
+import './ProductDetails.css'
 import { useParams } from 'react-router-dom'
 import productDetail from '../Products/products.json'
 
@@ -48,12 +49,21 @@ function ProductDetails() {
                     Best Product With High Quality Features.
                 </p>
 
-                <button
-                    className='addToCartDetailsBtn'
-                    onClick={handleAddToCart}
-                >
-                    Add To Cart
-                </button>
+                <div className="productRating">
+                    ⭐⭐⭐⭐⭐ <span>(4.8)</span>
+                </div>
+
+                <p className="stockStatus">✅ In Stock</p>
+
+                <div className="btnGroup">
+                    <button className="buyNowBtn">Buy Now</button>
+                    <button
+                        className="addToCartDetailsBtn"
+                        onClick={handleAddToCart}
+                    >
+                        Add To Cart
+                    </button>
+                </div>
 
             </div>
 
