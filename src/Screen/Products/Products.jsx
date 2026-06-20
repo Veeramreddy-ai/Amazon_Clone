@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../Redux/Actions/Actions';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import { Link } from 'react-router-dom';
 
 function Products() {
@@ -52,8 +53,8 @@ function Products() {
         default:
             break;
     }
-    console.log("Search:", searchTerm);
-    console.log("Products:", filteredProducts);
+    // console.log("Search:", searchTerm);
+    // console.log("Products:", filteredProducts);
 
     if (sortOption === "lowToHigh") {
         filteredProducts = [...filteredProducts].sort(
@@ -217,7 +218,7 @@ function Products() {
                                                 <StarOutlineIcon sx={{ fontSize: "16px", color: "#febd69" }} />
                                             </div>
                                             <div className='priceProductDetailsPage'>
-                                                <div className='currencyText'>₹</div>
+                                                <div className='currencyText'><CurrencyRupeeIcon sx={{ fontSize: "16px" }} /></div>
                                                 <div className='rateHomeDetail'>
                                                     <div className='rateHomeDetailsPrice'>{item.price}</div>
                                                     <div className='addtobasketBtn' onClick={() => {

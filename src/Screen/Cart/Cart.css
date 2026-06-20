@@ -125,6 +125,33 @@
     font-weight: 500;
 }
 
+.quantityContainer{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:10px;
+}
+
+.qtyBtn{
+    width:32px;
+    height:32px;
+    border:none;
+    border-radius:50%;
+    background:#ffd814;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.qtyBtn:hover{
+    background:#f7ca00;
+}
+
+.qtyValue{
+    font-size:18px;
+    font-weight:600;
+}
+
 @media screen and (max-width:768px){
 
     .cartItemLeftBlock{

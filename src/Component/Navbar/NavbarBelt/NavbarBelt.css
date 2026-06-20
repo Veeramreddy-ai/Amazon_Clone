@@ -76,7 +76,24 @@
     font-weight: 600;
     line-height: 15px;
 }
+.helloSignInNavbarBelt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: 0.2s ease;
+}
 
+.helloSignInNavbarBelt:hover {
+    border: 1px solid white;
+}
+
+.helloSignInNavbarBelt {
+    cursor: pointer;
+}
 .navbarBeltSearchBox{
     display: flex;
     justify-content: center;
@@ -229,6 +246,12 @@
     font-size: 16px;
 }
 
+/* .cartItemNumberNavbarBelt{
+    position:absolute;
+    top:10px;
+    color:#f08804;
+    font-weight:bold;
+} */
 /* Mobile Responsive */
 
 @media screen and (max-width:768px){

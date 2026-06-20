@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './Cart.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { removeFromCart } from '../../Redux/Actions/Actions'
+import {
+    removeFromCart,
+    updateCartQuantity
+} from '../../Redux/Actions/Actions'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -10,7 +13,7 @@ function Cart() {
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.items);
     const totalPrice = cartItems.reduce(
-        (total, item) => total + item.price,
+        (total, item) => total + item.price * item.quantity,
         0
     );
 
@@ -27,6 +30,26 @@ function Cart() {
         })
         dispatch(removeFromCart(id));
     }
+    const increaseQuantity = (item) => {
+        dispatch(
+            updateCartQuantity(
+                item.id,
+                item.quantity + 1
+            )
+        );
+    };
+
+    const decreaseQuantity = (item) => {
+
+        if (item.quantity > 1) {
+            dispatch(
+                updateCartQuantity(
+                    item.id,
+                    item.quantity - 1
+                )
+            );
+        }
+    };
     return (
         <div className="cart">
 
@@ -47,6 +70,27 @@ function Cart() {
                                         <div className='cartItemLeftBlockDetails'>
                                             <div className='cartItemProductName'>{item.name}</div>
                                             <div className='inStockcart'>In stock</div>
+                                            <div className="quantityContainer">
+
+                                                <button
+                                                    className="qtyBtn"
+                                                    onClick={() => decreaseQuantity(item)}
+                                                >
+                                                    -
+                                                </button>
+
+                                                <span className="qtyValue">
+                                                    {item.quantity}
+                                                </span>
+
+                                                <button
+                                                    className="qtyBtn"
+                                                    onClick={() => increaseQuantity(item)}
+                                                >
+                                                    +
+                                                </button>
+
+                                            </div>
                                             <div className='elgFreeShp'>Elligible for FREE Shopping</div>
                                             <div className='amazonFullFilledImage'><img className='fullfillImg' src='https://m.media.amazon.com/images/G/31/marketing/fba/fba-badge_18px._CB485936079_.png' alt="" /></div>
                                             <div
@@ -59,7 +103,7 @@ function Cart() {
                                     </div>
 
                                     <div className="cartItemRightBlock">
-                                        Rs {item.price}
+                                        Rs {item.price * item.quantity}
                                     </div>
                                 </div>
                             );

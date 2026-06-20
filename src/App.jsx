@@ -6,7 +6,7 @@ import Products from './Screen/Products/Products';
 import Footer from './Component/Footer/Footer';
 import Cart from './Screen/Cart/Cart';
 import ProductDetails from './Screen/ProductDetails/ProductDetails';
-
+import Wishlist from './Screen/Wishlist/Wishlist';
 import Auth from './Screen/Auth/Auth';
 
 import { useState } from 'react';
@@ -24,14 +24,16 @@ function App() {
 
   return (
     <div className="App">
-
+      
       <Navbar />
 
       <Routes>
         <Route path='/' element={<HomeScreen />} />
         <Route path='/products' element={<Products />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/wishlist' element={<Wishlist />}/>
         <Route path='/product/:id' element={<ProductDetails />} />
+        
       </Routes>
 
       <Footer />
